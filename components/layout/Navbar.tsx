@@ -310,10 +310,10 @@ export default function NavBar() {
                 >
                 <ul>
                     <li className="pl-7 py-2 border-b border-white/30 hover:bg-white/20 transition">
-                    <Link href="/our-mission">Our Mission</Link>
+                    <Link href="/about">Our Mission</Link>
                     </li>
                     <li className="pl-7 py-2 border-b border-white/30 hover:bg-white/20 transition">
-                    <Link href="/our-vision">Our Vision</Link>
+                    <Link href="/about">Our Vision</Link>
                     </li>
                 </ul>
                 </div>
