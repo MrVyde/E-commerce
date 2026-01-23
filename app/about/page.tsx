@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function About() {
     return (
-        <div className="min-h-screen px-6 text-black pt-12 bg-gray-200">
+        <div className="min-h-screen px-6 text-black pt-12 pb-10 bg-gray-200">
       {/* Breadcrumb - Centered */}
       <div className="text-sm text-center mt-10 mb-4">
         <Link href="/" className="text-blue-600 hover:underline">

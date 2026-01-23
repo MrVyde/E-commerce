@@ -44,7 +44,7 @@ Supabase – All-in-one backend (PostgreSQL, Auth, Realtime)
 
 Planned: Migration to custom backend using Node.js and JWT for authentication
 
-📁 Project Structure (Simplified)
+**Project Structure (Simplified)**
 
 ├── app/
 │   ├── page.tsx         # Main entry point
@@ -60,17 +60,17 @@ Planned: Migration to custom backend using Node.js and JWT for authentication
 
 Note: This project uses Supabase for backend services, including authentication and database management. Supabase handles user registration, login, and data operations through its client libraries, so custom API endpoints like those below are not implemented or used in this app.
 
-Authentication
+***Authentication**
 
-Register User
-
-Handled by Supabase Auth client library.
-
-Login User
+Register User-
 
 Handled by Supabase Auth client library.
 
-Cart (Authenticated)
+Login User-
+
+Handled by Supabase Auth client library.
+
+Cart (Authenticated)-
 
 Cart management is done via Supabase database and client-side state management, not through custom API endpoints.
 

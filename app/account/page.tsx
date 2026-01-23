@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { supabase } from '@/lib/supabaseClient';
 import { useAuthStore } from '@/stores/useAuthStore';
-import { X } from 'lucide-react';
+import { X,} from 'lucide-react';
 import { startTransition } from 'react';
 import Link from 'next/link';
 
@@ -36,26 +36,26 @@ export default function AuthPage() {
 
   // Countdown for resend email
   useEffect(() => {
-  if (view === 'confirm') {
-    startTransition(() => {
-      setCountdown(40);
-      setCanResend(false);
-    });
-
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          setCanResend(true);
-          return 0;
-        }
-        return prev - 1;
+    if (view === 'confirm') {
+      startTransition(() => {
+        setCountdown(40);
+        setCanResend(false);
       });
-    }, 1000);
 
-    return () => clearInterval(timer);
-  }
-}, [view]);
+      const timer = setInterval(() => {
+        setCountdown((prev) => {
+          if (prev <= 1) {
+            clearInterval(timer);
+            setCanResend(true);
+            return 0;
+          }
+          return prev - 1;
+        });
+      }, 1000);
+
+      return () => clearInterval(timer);
+      }
+    }, [view]);
 
 
   // Handle login/signup
@@ -111,7 +111,7 @@ export default function AuthPage() {
     if (error) {
       setError(error.message);
     } else {
-      setMessage('✅ Password reset link sent. Check your email.');
+      setMessage('Password reset link sent. Check your email.');
     }
 
     setLoading(false);
@@ -129,7 +129,7 @@ export default function AuthPage() {
     if (error) {
       setError(error.message);
     } else {
-      setMessage('✅ Password updated! Redirecting...');
+      setMessage('Password updated! Redirecting...');
       setTimeout(() => router.push('/account'), 2000);
     }
 
@@ -185,7 +185,7 @@ export default function AuthPage() {
         {view === 'confirm' ? (
           <div className="text-center space-y-4">
             <p className="text-gray-700">
-              ✅ <strong>We’ve emailed you!</strong><br />
+               <strong>We’ve emailed you!</strong><br />
               We’ve sent you an email that contains a link to complete your registration.<br />
               Please check your spam inbox if you can’t find the mail.
             </p>
@@ -206,7 +206,7 @@ export default function AuthPage() {
                       setCountdown(40);
                     }
                   }}
-                  className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+                  className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-gray-700"
                 >
                   Resend Email
                 </button>

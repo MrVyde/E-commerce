@@ -30,7 +30,6 @@ export default function SearchBar({query, suggestions, onChange, onSelect,}: Sea
       focus:shadow-[0_0_10px_rgba(34,211,238,0.45)]
       transition-all
     "
-
   />
 
   <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-600" />
@@ -40,7 +39,7 @@ export default function SearchBar({query, suggestions, onChange, onSelect,}: Sea
       className="
         absolute mt-2 w-full z-50 max-h-60 overflow-y-auto
         rounded-xl border border-white/30
-        bg-white/80 backdrop-blur-md
+        bg-zinc-600 backdrop-blur-md
         shadow-lg shadow-black/30
       "
     >
