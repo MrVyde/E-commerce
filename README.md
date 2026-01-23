@@ -1,89 +1,91 @@
 # E-Commerce App
 
 ## Overview
-A simple e-commerce application where users can browse products, add items to cart, and place orders.
+This is a full-stack e-commerce application that allows users to browse products, manage a shopping cart, and place orders. It was built to demonstrate a complete e-commerce workflow with modern frontend and backend technologies. The project emphasizes clean architecture, state management, and API integration.
+
+## Live Demo
+Coming soon (optional: add Vercel or Netlify link here)
+
+## Test Account for Demo
+You can use the following credentials to explore the app:
+
+Email: Vyde@gmail34.com
+Password: Test1234
 
 ## Features
-- User authentication
-- Product browsing
-- Shopping cart
-- Order placement
+User authentication (register/login)
 
-## API Contract
-- Authentication
-- Products
-- Cart (Authenticated)
-- Orders (Authenticated)
+Product catalog browsing
+
+Add/remove items from cart
+
+Cart checkout page
+
+User profile page (personalized view)
+
+API integration with Supabase backend
 
 ## Tech Stack
-- Next.js
-- React
-- Backend: Node.js (planned)  
-- Auth: JWT (planned)
+Frontend
 
-## Getting Started
-(You can keep the Next.js instructions here)
+Next.js – App routing and SSR
 
-#### Authentication APIs
+React – Component-based UI
 
-### Register user
-POST /api/auth/register
+Zustand – Lightweight state management
 
-Request:
-{
-  "name": "John",
-  "email": "john@email.com",
-  "password": "secret123"
-}
+React Query – Data fetching and caching
 
-Response:
-{
-  "id": "u1",
-  "name": "John",
-  "email": "john@email.com"
-}
+Tailwind CSS (optional) – Styling (if used)
 
----
+Backend
 
-### Login user
-POST /api/auth/login
+Supabase – All-in-one backend (PostgreSQL, Auth, Realtime)
 
-Request:
-{
-  "email": "john@email.com",
-  "password": "secret123"
-}
+Planned: Migration to custom backend using Node.js and JWT for authentication
 
-Response:
-{
-  "token": "JWT_TOKEN"
-}
+📁 Project Structure (Simplified)
 
-#### Cart APIs (Authenticated)
+├── app/
+│   ├── page.tsx         # Main entry point
+│   ├── account/         # User profile page
+│   ├── cart/            # Cart and checkout
+├── components/          # Reusable UI components
+├── stores/               # Zustand state management
+├── services/            # API interaction (React Query + Supabase)
+├── public/              # Static assets
 
-### Get current cart
-GET /api/cart
 
-Response:
-{
-  "id": "c1",
-  "items": [
-    {
-      "productId": "p1",
-      "name": "Shoes",
-      "price": 99,
-      "quantity": 2
-    }
-  ]
-}
+### API Endpoints
 
----
+Note: This project uses Supabase for backend services, including authentication and database management. Supabase handles user registration, login, and data operations through its client libraries, so custom API endpoints like those below are not implemented or used in this app.
 
-### Add item to cart
-POST /api/cart/items
+Authentication
 
-Request:
-{
-  "productId": "p1",
-  "quantity": 1
-}
+Register User
+
+Handled by Supabase Auth client library.
+
+Login User
+
+Handled by Supabase Auth client library.
+
+Cart (Authenticated)
+
+Cart management is done via Supabase database and client-side state management, not through custom API endpoints.
+
+
+### Roadmap / Future Improvements
+
+Payment gateway integration (Stripe)
+
+Order history and tracking
+
+Admin dashboard for product management
+
+Product reviews and ratings
+
+Email notifications
+
+
+####  **Built by MrVyde**
