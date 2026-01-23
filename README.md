@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# E-commerce
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
-=======
 # E-Commerce App
 
 ## Overview
@@ -26,7 +20,6 @@ A simple e-commerce application where users can browse products, add items to ca
 - React
 - Backend: Node.js (planned)  
 - Auth: JWT (planned)
->>>>>>> 745e067 (Initial commit: project scaffold and setup)
 
 ## Getting Started
 (You can keep the Next.js instructions here)
@@ -94,9 +87,3 @@ Request:
   "productId": "p1",
   "quantity": 1
 }
-
-<<<<<<< HEAD
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> 3101ef4 (Initial commit from Create Next App)
-=======
->>>>>>> 745e067 (Initial commit: project scaffold and setup)
