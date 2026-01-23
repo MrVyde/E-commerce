@@ -13,6 +13,13 @@ import {
   FaEnvelope,
 } from 'react-icons/fa';
 
+
+type LinkItem = { label: string; href: string };
+type FooterSection = { title: string; links?: LinkItem[] }; 
+
+
+
+
 const sections = [
   {
     title: 'Our Company',
@@ -33,10 +40,13 @@ const sections = [
   },
 ];
 
+const allSections: FooterSection[] = [...sections, { title: 'Newsletter' }];
+
 export default function Footer() {
   const [openSection, setOpenSection] = useState<string | null>(null);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+
 
   const toggleSection = (title: string) => {
     setOpenSection(openSection === title ? null : title);
@@ -55,7 +65,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
-                <FaMapMarkerAlt className="mt-1 text-red-500 w-4 h-4" />
+                <FaMapMarkerAlt className="mt-1 text-stone-900 w-4 h-4" />
                 <span>2571 Oakridge</span>
               </li>
               <li>
@@ -63,7 +73,7 @@ export default function Footer() {
                   href="tel:+19734353638"
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
-                  <FaPhoneAlt className="mt-1 text-red-500 w-4 h-4" />
+                  <FaPhoneAlt className="mt-1 text-gray-900 w-4 h-4" />
                   <span>+1 (973) 435–3638</span>
                 </a>
               </li>
@@ -72,7 +82,7 @@ export default function Footer() {
                   href="mailto:info@fashionwomen.com"
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
-                  <FaEnvelope className="mt-1 text-red-500 w-4 h-4" />
+                  <FaEnvelope className="mt-1 text-zinc-900 w-4 h-4" />
                   <span>info@vyde.com</span>
                 </a>
               </li>
@@ -130,7 +140,7 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600 w-full sm:w-[30%] min-w-[120px]"
+                className="bg-stone-900 text-white px-6 py-2 rounded-md hover:bg-red-600 w-full sm:w-[30%] min-w-[120px]"
               >
                 Sign Up
               </button>
@@ -163,7 +173,7 @@ export default function Footer() {
             </p>
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
-                <FaMapMarkerAlt className="mt-1 text-red-500 w-4 h-4" />
+                <FaMapMarkerAlt className="mt-1 text-gray-900 w-4 h-4" />
                 <span>2571 Oakridge</span>
               </li>
               <li>
@@ -171,7 +181,7 @@ export default function Footer() {
                   href="tel:+19734353638"
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
-                  <FaPhoneAlt className="mt-1 text-red-500 w-4 h-4" />
+                  <FaPhoneAlt className="mt-1 text-gray-900 w-4 h-4" />
                   <span>+1 (973) 435–3638</span>
                 </a>
               </li>
@@ -180,7 +190,7 @@ export default function Footer() {
                   href="mailto:info@fashionwomen.com"
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
-                  <FaEnvelope className="mt-1 text-red-500 w-4 h-4" />
+                  <FaEnvelope className="mt-1 text-stone-900 w-4 h-4" />
                   <span>info@Vyde.com</span>
                 </a>
               </li>
@@ -188,7 +198,7 @@ export default function Footer() {
           </div>
 
           {/* Collapsible Sections */}
-          {[...sections, { title: 'Newsletter' }].map(({ title, links }) => (
+          {allSections.map(({ title, links }) => (
             <div key={title}>
               <button
                 onClick={() => toggleSection(title)}
@@ -221,7 +231,7 @@ export default function Footer() {
                         />
                         <button
                           type="submit"
-                            className="bg-red-500 text-white px-6 py-2 rounded-md hover:bg-red-600"
+                            className="bg-zinc-900 text-white px-6 py-2 rounded-md hover:bg-red-600"
                         >
                           Sign Up
                         </button>

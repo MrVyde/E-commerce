@@ -10,25 +10,25 @@ import {
 
 const features = [
   {
-    icon: <Truck className="w-6 h-6 text-red-500" />,
+    icon: <Truck className="w-6 h-6 text-stone-900" />,
     title: 'Fast & Free Shipping',
     description:
       'We believe in getting your products to you as quickly as possible, with no extra cost.',
   },
   {
-    icon: <ShieldCheck className="w-6 h-6 text-red-500" />,
+    icon: <ShieldCheck className="w-6 h-6 text-slate-900" />,
     title: '100% Secure Checkout',
     description:
       'Shop with confidence knowing that your personal information is safe with our 100% Secure Checkout.',
   },
   {
-    icon: <Heart className="w-6 h-6 text-red-500" />,
+    icon: <Heart className="w-6 h-6 text-zinc-900" />,
     title: 'Easy 30-days Returns',
     description:
       "We want you to love every purchase, and if for any reason you're not completely satisfied.",
   },
   {
-    icon: <Headphones className="w-6 h-6 text-red-500" />,
+    icon: <Headphones className="w-6 h-6 text-gray-900" />,
     title: 'Our Premium Support',
     description:
       'Experience exceptional service with our premium support team dedicated to your needs.',
@@ -61,8 +61,8 @@ export default function ServiceFeatures() {
     const container = containerRef.current;
     if (!container) return;
 
-    let startX = e.pageX - container.offsetLeft;
-    let scrollLeft = container.scrollLeft;
+    const startX = e.pageX - container.offsetLeft;
+    const scrollLeft = container.scrollLeft;
 
     const onMouseMove = (e: MouseEvent) => {
       const x = e.pageX - container.offsetLeft;
@@ -82,7 +82,7 @@ export default function ServiceFeatures() {
   };
 
   return (
-    <section className="w-full overflow-hidden px-6 py-12 bg-white">
+    <section className="w-full overflow-hidden px-2 md:px-4 py-12 bg-white">
       <div className="max-w-9xl mx-auto">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-10">
           Why Shop With Us
@@ -126,7 +126,7 @@ export default function ServiceFeatures() {
                 <span
                   key={i}
                   className={`w-2 h-2 rounded-full transition-all ${
-                    activeIndex === i ? 'bg-red-500 scale-110' : 'bg-gray-300'
+                    activeIndex === i ? 'bg-gray-900 scale-110' : 'bg-gray-300'
                   }`}
                 />
               ))}

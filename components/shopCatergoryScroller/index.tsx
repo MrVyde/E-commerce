@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
 
 const categories = [
@@ -28,8 +28,8 @@ export default function CategoryScroller() {
     const container = containerRef.current;
     if (!container) return;
 
-    let startX = e.pageX - container.offsetLeft;
-    let scrollLeft = container.scrollLeft;
+    const startX = e.pageX - container.offsetLeft;
+    const scrollLeft = container.scrollLeft;
 
     const onMouseMove = (e: MouseEvent) => {
       const x = e.pageX - container.offsetLeft;
@@ -75,6 +75,7 @@ export default function CategoryScroller() {
                 draggable={false}
               >
                 <div className="group rounded-lg overflow-hidden h-[345px] sm:h-[345px] md:h-[384px] lg:h-[384px]">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={cat.image}
                     alt={cat.name}

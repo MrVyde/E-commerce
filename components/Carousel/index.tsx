@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState} from "react";
 
 interface CarouselProps {
   items: { name: string; image: string }[];

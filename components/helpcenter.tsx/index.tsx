@@ -49,7 +49,7 @@ export default function HelpCenter() {
           </p>
           <Link
             href="/contactus"
-            className="bg-red-500 text-white px-4 py-2 rounded-md w-fit hover:bg-red-600"
+            className="bg-gray-900 text-white px-4 py-2 rounded-md w-fit hover:bg-red-600"
           >
             Contact Us
           </Link>
@@ -65,9 +65,9 @@ export default function HelpCenter() {
               >
                 <h3 className="text-md font-semibold text-gray-800">{faq.question}</h3>
                 {openIndex === index ? (
-                  <Minus className="w-5 h-5 text-red-500" />
+                  <Minus className="w-5 h-5 text-gray-900" />
                 ) : (
-                  <Plus className="w-5 h-5 text-red-500" />
+                  <Plus className="w-5 h-5 text-gray-900" />
                 )}
               </button>
               {openIndex === index && (

@@ -1,8 +1,11 @@
+// Cart state is intentionally not persisted.
+// This project focuses on UI and state management for demonstration purposes.
+
 import { create } from 'zustand'
 
 export interface CartItem {
   id: string;
-  name: string;
+  title: string;
   price: number;
   quantity: number;
   image?: string;

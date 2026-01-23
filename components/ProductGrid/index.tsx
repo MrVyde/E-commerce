@@ -63,7 +63,7 @@ export default function ProductGrid({ category, page }: { category: string; page
                 Pre-Order
               </span>
             )}
-
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={product.image_url}
               alt={product.title}
@@ -91,18 +91,18 @@ export default function ProductGrid({ category, page }: { category: string; page
                   onClick={() =>
                     addToCart({
                       id: product.id,
-                      name: product.title,
+                      title: product.title,
                       price: product.price,
                       quantity: 1,
                       image: product.image_url,
                     })
                   }
-                  className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded transition"
+                  className="w-32 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 rounded-xl transition"
                 >
                   Add to cart
                 </button>
               ) : (
-                <div className="flex items-center justify-between border border-yellow-400 rounded px-3 py-2">
+                <div className="w-32 flex items-center justify-between border border-yellow-400 rounded-xl px-3 py-2">
                   <button
                     onClick={() => {
                       const newQty = quantity - 1;

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { ShoppingCart, User, Menu, ChevronDown, X } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/useAuthStore';
@@ -17,6 +17,8 @@ export default function NavBar() {
   const [query, setQuery] = useState('');
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const [products, setProducts] = useState<string[]>([]);
+
 
   const router = useRouter();
   const pathname = usePathname();
@@ -28,6 +30,23 @@ export default function NavBar() {
   const lastName = user?.user_metadata?.lastName;
   const email = user?.email;
   const isLoggedIn = !!user;
+
+   useEffect(() => {
+
+    const fetchProducts = async () => {
+      const { data, error }= await supabase
+        .from('products') // your table name
+        .select('title');  // the column you want
+
+      if (error) {
+        console.error('Error fetching products:',error);
+      } else if (data) {
+        setProducts(data.map((item) => item.title));
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -105,23 +124,22 @@ export default function NavBar() {
         <div className="hidden md:flex items-center gap-6 text-white font-medium">
           <Link href="/">Home</Link>
           <Link href="/shop">Shop</Link>
-          <div className="relative group">
-            <Link href="/about">About</Link>
-            <ul className="absolute hidden group-hover:block bg-white text-black mt-2 rounded shadow">
-              <li>
-                <Link href="/our-mission" className="block px-4 py-2 hover:bg-gray-100">
-                  Our Mission
-                </Link>
-              </li>
-              <li>
-                <Link href="/our-vision" className="block px-4 py-2 hover:bg-gray-100">
-                  Our Vision
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <div className="relative group py-2">
+              <Link href="/about">About</Link>
+                <ul className="absolute left-0 top-full z-50 hidden group-hover:block hover:block bg-white text-black rounded shadow min-w-[180px] pt-1">
+                    <li>
+                    <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
+                        Our Mission
+                    </Link>
+                    </li>
+                    <li>
+                    <Link href="/about" className="block px-4 py-2 hover:bg-gray-100">
+                        Our Vision
+                    </Link>
+                    </li>
+                </ul>
+           </div>
         </div>
-
         <div className="flex items-center gap-4 text-white">
           <div className="hidden md:block">
             <SearchBar
@@ -150,7 +168,7 @@ export default function NavBar() {
             </button>
 
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-[420px] bg-white text-black rounded-md shadow-lg z-50">
+              <div className="absolute right-0 mt-4 w-[420px] bg-white text-black rounded-md shadow-lg z-50">
                 <div className="flex divide-x rounded-md overflow-hidden">
                   {/* Left column */}
                   <div className="w-1/2 p-4">

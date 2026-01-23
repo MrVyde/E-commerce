@@ -12,7 +12,7 @@ export default function UserProfilePage() {
     if (!user) {
       router.push('/account');
     }
-  }, [user]);
+  }, [user, router]);
 
   if (!user) return null;
 
@@ -59,7 +59,7 @@ export default function UserProfilePage() {
                 placeholder="Gift card code"
                 className="flex-1 border border-gray-300 px-3 py-2 rounded"
               />
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              <button className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-blue-700">
                 Redeem
               </button>
             </div>
@@ -78,7 +78,7 @@ export default function UserProfilePage() {
                 placeholder="Search by Order Number, Brand, or Name"
                 className="flex-1 border border-gray-300 px-3 py-2 rounded"
               />
-              <button className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+              <button className="bg-gray-900 text-white px-4 py-2 rounded hover:bg-blue-700">
                 Search Orders
               </button>
             </div>

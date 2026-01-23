@@ -18,7 +18,7 @@ export default function Cart() {
     }
     return  (
         <>
-            <div className="p-8">
+            <div className="px-6 pt-4 md:pt-20">
                 <div className="text-center mb-6">
                     <h1 className="text-2xl font-bold mb-6">Shopping Cart</h1>
                     <p className="text-gray-600 mt-2">
@@ -40,6 +40,7 @@ export default function Cart() {
                             >
                                 {/* Product Column */}
                                 <div className="flex gap-4">
+                                    {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src={item.image}
                                         alt={item.title}
@@ -113,7 +114,7 @@ export default function Cart() {
 
                         <button
                             onClick={clearCart}
-                            className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
+                            className="mt-4 px-4 py-2 bg-gray-900 text-white rounded hover:bg-red-600"
                         >
                             Clear Cart
                         </button>
@@ -171,7 +172,7 @@ export default function Cart() {
                             </div>
 
                             <div className="py-4 flex items-center gap-2 text-sm text-gray-700">
-                                <input type="checkbox" id="terms" className="accent-blue-600" />
+                                <input type="checkbox" id="terms" className="accent-grat-900" />
                                 <label htmlFor="terms" className="select-none">
                                     I agree with{" "}
                                     <span className="underline cursor-pointer">
@@ -180,12 +181,12 @@ export default function Cart() {
                                 </label>
                             </div>
 
-                            <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+                            <button className="w-full bg-gray-900 text-white py-2 rounded hover:bg-gray-900 transition">
                                 Proceed to Checkout
                             </button>
                         </div>
 
-                        <div className="border border-gray-300 rounded-lg p-4 bg-white shadow-sm space-y-4 text-sm text-gray-700">
+                        <div className="border border-gray-300 rounded-lg p-4 mb-4 bg-white shadow-sm space-y-4 text-sm text-gray-700">
                             <div>
                                 <h3 className="font-semibold text-base mb-1">
                                     Delivery Information

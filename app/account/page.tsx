@@ -6,6 +6,7 @@ import { supabase } from '@/lib/supabaseClient';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { X } from 'lucide-react';
 import { startTransition } from 'react';
+import Link from 'next/link';
 
 
 export default function AuthPage() {
@@ -138,10 +139,10 @@ export default function AuthPage() {
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-10 flex flex-col items-center">
       <div className="max-w-md w-full mb-8 text-center">
-        <div className="text-sm text-gray-500 mb-2">
-          <a href="/" className="text-gray-500 hover:text-blue-600 transition-colors">
+        <div className="text-sm text-gray-500 mb-2 md:pt-12">
+          <Link href="/" className="text-gray-500 hover:text-blue-600 transition-colors">
             Home
-          </a>{' '}
+          </Link>{' '}
           • Account
         </div>
         <h1 className="text-3xl font-bold text-gray-800 mb-2">
@@ -170,7 +171,7 @@ export default function AuthPage() {
         }
         className="bg-white p-8 rounded-lg shadow-md w-full max-w-md relative"
       >
-        <div className="absolute top-4 right-4">
+        <div className="absolute top-2 right-2">
           <button
             type="button"
             onClick={() => router.push('/')}
@@ -267,7 +268,7 @@ export default function AuthPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 disabled:opacity-50"
+              className="w-full bg-gray-900 text-white py-2 rounded-md hover:bg-gray-700 disabled:opacity-50"
             >
               {loading
                 ? view === 'login'
