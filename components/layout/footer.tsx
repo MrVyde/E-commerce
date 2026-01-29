@@ -66,7 +66,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <FaMapMarkerAlt className="mt-1 text-stone-900 w-4 h-4" />
-                <span>2571 Oakridge</span>
+                <span>2571 Seattle</span>
               </li>
               <li>
                 <a
@@ -74,7 +74,7 @@ export default function Footer() {
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
                   <FaPhoneAlt className="mt-1 text-gray-900 w-4 h-4" />
-                  <span>+1 (973) 435–3638</span>
+                  <span>+1 (879) 776–9367</span>
                 </a>
               </li>
               <li>
@@ -174,7 +174,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <FaMapMarkerAlt className="mt-1 text-gray-900 w-4 h-4" />
-                <span>2571 Oakridge</span>
+                <span>2571 Seattle</span>
               </li>
               <li>
                 <a
@@ -182,7 +182,7 @@ export default function Footer() {
                   className="flex items-start gap-2 hover:text-red-500 transition-colors"
                 >
                   <FaPhoneAlt className="mt-1 text-gray-900 w-4 h-4" />
-                  <span>+1 (973) 435–3638</span>
+                  <span>+1 (879) 776–9367</span>  
                 </a>
               </li>
               <li>

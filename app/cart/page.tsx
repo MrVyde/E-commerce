@@ -11,7 +11,7 @@ export default function Cart() {
         
     if (items.length === 0 ) {
     return (
-        <h2 className="text-center mt-8 text-lg font-semibold">
+        <h2 className="text-center text-lg py-20 md:py-40 font-semibold">
             Your cart is empty 🛍️
         </h2>
         );
@@ -107,7 +107,7 @@ export default function Cart() {
 
                                 {/* Price Column */}
                                 <div className="text-gray-700 font-medium md:text-center">
-                                    ${item.price.toFixed(2)}
+                                    £{item.price.toFixed(2)}
                                 </div>
                             </div>
                         ))}
@@ -128,7 +128,7 @@ export default function Cart() {
                                 <div className="flex justify-between">
                                     <span className="text-gray-700">Subtotal</span>
                                     <span className="font-medium">
-                                        ${subtotal.toFixed(2)}
+                                        £{subtotal.toFixed(2)}
                                     </span>
                                 </div>
                                 <p className="text-sm text-gray-500 mb-4">

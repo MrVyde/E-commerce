@@ -1,20 +1,25 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { supabase } from '@/lib/supabaseClient';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { X,} from 'lucide-react';
 import { startTransition } from 'react';
 import Link from 'next/link';
 
+const getInitialView = () => {
+  if (typeof window === 'undefined') return 'login';
+
+  return window.location.hash.includes('type=recovery')
+    ? 'reset'
+    : 'login';
+};
 
 export default function AuthPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const { setUser } = useAuthStore();
-
-  const [view, setView] = useState<'login' | 'signup' | 'forgot' | 'reset' | 'confirm'>('login');
+const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'confirm'>(() => getInitialView());
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -25,13 +30,7 @@ export default function AuthPage() {
   const [countdown, setCountdown] = useState(40);
   const [canResend, setCanResend] = useState(false);
 
-  // Detect password recovery mode from Supabase
-  useEffect(() => {
-  const type = searchParams.get('type');
-  if (type === 'recovery') {
-    setTimeout(() => setView('reset'), 0);
-  }
-}, [searchParams]);
+
 
 
   // Countdown for resend email
@@ -58,6 +57,8 @@ export default function AuthPage() {
     }, [view]);
 
 
+
+  
   // Handle login/signup
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();

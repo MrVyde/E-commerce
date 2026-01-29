@@ -14,7 +14,7 @@ const categories = [
 
 export default function MobileFilterBar({ selected, onSelect }: Props) {
   return (
-    <div className="bg-white p-4">
+    <div className="bg-white px-1 pb-5 md:p-4">
       {/* Filter Header */}
       <h2 className="text-lg font-semibold mb-3">Filter</h2>
 

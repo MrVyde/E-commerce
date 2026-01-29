@@ -4,7 +4,7 @@ import Carousel from "@/components/Carousel";
 import FlashSaleBanner from "@/components/flash_sales";
 import HappyCustomers from "@/components/happycustomers";
 import ServiceFeatures from "@/components/serviceFeature";
-import HelpCenter from "@/components/helpcenter.tsx";
+import HelpCenter from "@/components/helpcenter";
 import BrandMarquee from "@/components/brand";
 
 
