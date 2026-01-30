@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 import { useAuthStore } from '@/stores/useAuthStore';
 import { X,} from 'lucide-react';
 import { startTransition } from 'react';
@@ -30,6 +30,7 @@ const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'con
   const [countdown, setCountdown] = useState(40);
   const [canResend, setCanResend] = useState(false);
 
+const supabase = getSupabaseClient();
 
 
 
