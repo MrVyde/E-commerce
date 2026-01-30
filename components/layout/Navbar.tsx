@@ -50,6 +50,17 @@ export default function NavBar() {
     fetchProducts();
   }, []);
 
+const HIDE_SEARCH_ROUTES = [
+  '/account',
+  '/cart',
+  '/about',
+];
+
+const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
+  pathname.startsWith(route)
+);
+
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setQuery(value);
@@ -156,6 +167,7 @@ export default function NavBar() {
               }}
             />
           </div>
+        
 
           {/* User Dropdown (Desktop Only) */}
           <div
@@ -237,7 +249,8 @@ export default function NavBar() {
       </nav>
 
       {/* Mobile Search */}
-      <div className="block md:hidden w-full px-4 pt-16 bg-white shadow">
+      {!hideSearch && (
+        <div className="block md:hidden w-full px-4 pt-16 bg-white shadow">
         <SearchBar
           query={query}
           suggestions={suggestions}
@@ -248,6 +261,7 @@ export default function NavBar() {
           }}
         />
       </div>
+      )}
 
         {/* Mobile Menu */}
     <div>

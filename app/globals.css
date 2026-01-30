@@ -49,7 +49,3 @@ body {
   animation: marquee 30s linear infinite;
 }
 
-/* In your global CSS or component style */
-.unwanted-pagination {
-  display: none;
-}

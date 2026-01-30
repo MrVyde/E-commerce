@@ -42,6 +42,22 @@ export default function Carousel({ items }: CarouselProps) {
     containerRef.current.scrollLeft = scrollLeft.current + walk;
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+  if (!containerRef.current) return;
+  setIsDragging(true);
+  startX.current = e.touches[0].pageX - containerRef.current.offsetLeft;
+  scrollLeft.current = containerRef.current.scrollLeft;
+};
+
+const handleTouchMove = (e: React.TouchEvent) => {
+  if (!isDragging || !containerRef.current) return;
+  const x = e.touches[0].pageX - containerRef.current.offsetLeft;
+  const walk = startX.current - x;
+  containerRef.current.scrollLeft = scrollLeft.current + walk;
+};
+
+const handleTouchEnd = () => setIsDragging(false);
+
   return (
     <div>
       <div
@@ -52,6 +68,9 @@ export default function Carousel({ items }: CarouselProps) {
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseLeave}
         onMouseMove={handleMouseMove}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onClick={(e) => {
           if (isDragging) e.preventDefault(); // prevent accidental clicks while dragging
         }}

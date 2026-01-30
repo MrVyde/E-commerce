@@ -151,7 +151,7 @@ const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'con
   return (
     <div className="min-h-screen bg-gray-100 px-4 py-10 flex flex-col items-center">
       <div className="max-w-md w-full mb-8 text-center">
-        <div className="text-sm text-gray-500 mb-2 md:pt-12">
+        <div className="text-sm text-gray-500 my-6 pt-5 md:pt-12">
           <Link href="/" className="text-gray-500 hover:text-blue-600 transition-colors">
             Home
           </Link>{' '}
