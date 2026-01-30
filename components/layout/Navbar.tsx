@@ -6,7 +6,7 @@ import { useState, useRef, useEffect } from 'react';
 import { ShoppingCart, User, Menu, ChevronDown, X } from 'lucide-react';
 import { useCartStore } from '@/stores/cartStore';
 import { useAuthStore } from '@/stores/useAuthStore';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 import SearchBar from './searchBar';
 import { useRouter, usePathname } from 'next/navigation';
 
@@ -32,6 +32,8 @@ export default function NavBar() {
   const isLoggedIn = !!user;
 
    useEffect(() => {
+
+    const supabase = getSupabaseClient();
 
     const fetchProducts = async () => {
       const { data, error }= await supabase
@@ -63,6 +65,8 @@ export default function NavBar() {
   };
 
   const handleLogout = async () => {
+    const supabase = getSupabaseClient();
+
     await supabase.auth.signOut();
     setUser(null);
     setDropdownOpen(false);

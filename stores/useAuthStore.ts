@@ -2,7 +2,7 @@
 'use client';
 
 import { create } from 'zustand';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 import type { User } from '@supabase/supabase-js';
 
 let initialized = false;
@@ -22,11 +22,13 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setUser: (user) => set({ user, loading: false }),
 
   signOut: async () => {
+    const supabase = getSupabaseClient();
     await supabase.auth.signOut();
     set({ user: null });
   },
 
   fetchUser: async () => {
+    const supabase = getSupabaseClient();
     const { data, error } = await supabase.auth.getUser();
 
     if (error) {
@@ -40,6 +42,8 @@ export const useAuthStore = create<AuthStore>((set) => ({
 }));
 
 export const initAuthListener = () => {
+  const supabase = getSupabaseClient();
+
   if (initialized) return;
   initialized = true;
 
