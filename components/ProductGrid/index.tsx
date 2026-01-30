@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { supabase } from '@/lib/supabaseClient';
+import { getSupabaseClient } from '@/lib/supabaseClient';
 import { useCartStore } from '@/stores/cartStore';
 
 type Product = {
@@ -28,6 +28,9 @@ export default function ProductGrid({ category, page }: { category: string; page
   } = useCartStore();
 
   useEffect(() => {
+
+    const supabase = getSupabaseClient();
+
     async function fetchProducts() {
       setLoading(true);
       const from = (page - 1) * PAGE_SIZE;
