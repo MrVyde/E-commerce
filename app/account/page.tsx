@@ -32,7 +32,7 @@ const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'con
   const [countdown, setCountdown] = useState(40);
   const [canResend, setCanResend] = useState(false);
 
-const supabase = getSupabaseClient();
+
 
 
 
@@ -65,6 +65,8 @@ const supabase = getSupabaseClient();
   // Handle login/signup
   const handleAuth = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const supabase = getSupabaseClient();
     setLoading(true);
     setError('');
     setMessage('');
@@ -104,6 +106,9 @@ const supabase = getSupabaseClient();
   // Handle forgot password
   const handleForgot = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const supabase = getSupabaseClient();
+
     setLoading(true);
     setError('');
     setMessage('');
@@ -124,6 +129,9 @@ const supabase = getSupabaseClient();
   // Handle password reset
   const handleReset = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    const supabase = getSupabaseClient();
+
     setLoading(true);
     setError('');
     setMessage('');
@@ -201,6 +209,8 @@ const supabase = getSupabaseClient();
                 <button
                   type="button"
                   onClick={async () => {
+                    const supabase = getSupabaseClient();
+
                     const { error } = await supabase.auth.resend({ type: 'signup', email });
                     if (error) {
                       setError(error.message);
