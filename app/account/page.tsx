@@ -21,7 +21,7 @@ const getInitialView = () => {
 export default function AuthPage() {
   const router = useRouter();
   const { setUser } = useAuthStore();
-const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'confirm'>(() => getInitialView());
+  const [view, setView] = useState< 'login' | 'signup' | 'forgot' | 'reset' | 'confirm'>(() => getInitialView());
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');

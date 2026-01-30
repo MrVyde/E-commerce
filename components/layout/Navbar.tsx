@@ -54,6 +54,7 @@ const HIDE_SEARCH_ROUTES = [
   '/account',
   '/cart',
   '/about',
+  '/userprofile',
 ];
 
 const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
