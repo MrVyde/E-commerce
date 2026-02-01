@@ -10,6 +10,13 @@ import { getSupabaseClient } from '@/lib/supabaseClient';
 import SearchBar from './searchBar';
 import { useRouter, usePathname } from 'next/navigation';
 
+const HIDE_SEARCH_ROUTES = [
+  '/account',
+  '/cart',
+  '/about',
+  '/userprofile',
+];
+
 export default function NavBar() {
   const [open, setOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
@@ -50,12 +57,7 @@ export default function NavBar() {
     fetchProducts();
   }, []);
 
-const HIDE_SEARCH_ROUTES = [
-  '/account',
-  '/cart',
-  '/about',
-  '/userprofile',
-];
+
 
 const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
   pathname.startsWith(route)
@@ -297,6 +299,7 @@ const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
             <div>
             <Link
                 href="/"
+                onClick={() => setOpen(false)}
                 className="py-4 px-6 block font-medium shadow-[inset_0_-1.5px_0_rgba(0,0,0,0.25)] hover:bg-white/50 transition"
             >
                 Home
@@ -304,6 +307,7 @@ const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
 
             <Link
                 href="/shop"
+                onClick={() => setOpen(false)}
                 className="py-4 px-6 block font-medium shadow-[inset_0_-2px_0_rgba(0,0,0,0.25)] hover:bg-white/20 transition"
             >
                 Shop
@@ -329,10 +333,20 @@ const hideSearch = HIDE_SEARCH_ROUTES.some((route) =>
                 >
                 <ul>
                     <li className="pl-7 py-2 border-b border-white/30 hover:bg-white/20 transition">
-                    <Link href="/about">Our Mission</Link>
+                    <Link 
+                    href="/about"
+                    onClick={() => setOpen(false)}
+                    >
+                      Our Mission
+                    </Link>
                     </li>
                     <li className="pl-7 py-2 border-b border-white/30 hover:bg-white/20 transition">
-                    <Link href="/about">Our Vision</Link>
+                    <Link 
+                      href="/about"
+                      onClick={() => setOpen(false)}
+                    >
+                      Our Vision
+                    </Link>
                     </li>
                 </ul>
                 </div>

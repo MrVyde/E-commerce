@@ -4,7 +4,7 @@
 This is a full-stack e-commerce application that allows users to browse products, manage a shopping cart, and place orders. It was built to demonstrate a complete e-commerce workflow with modern frontend and backend technologies. The project emphasizes clean architecture, state management, and API integration.
 
 ## Live Demo
-Coming soon (optional: add Vercel or Netlify link here)
+deployed on [Vercel](https://vyde-store.vercel.app/) 
 
 ## Test Account for Demo
 You can use the following credentials to explore the app:
